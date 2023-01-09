@@ -1,4 +1,4 @@
-fetch('documents/Document_Metadata.json')
+fetch('https://raw.githubusercontent.com/AlexHappyCode/Doc_Organizer_Website/main/documents/Document_Metadata.json')
     .then(response => response.text())
     .then(data => {
         let jsonObj = JSON.parse(data)
