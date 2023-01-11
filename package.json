@@ -1,11 +1,23 @@
 {
-  "name": "version-controlled-doc-organizer",
+  "name": "src_website",
   "version": "1.0.0",
-  "description": "",
+  "description": "This showcases a google forms app script extension that automates saving and version controlling form responses and document submissions to this github repository.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Alexander Pena",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexHappyCode/Doc_Organizer_Website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AlexHappyCode/Doc_Organizer_Website/issues"
+  },
+  "homepage": "https://github.com/AlexHappyCode/Doc_Organizer_Website#readme",
+  "devDependencies": {
+    "eslint": "^8.31.0",
+    "prettier": "^2.8.2"
+  }
 }
