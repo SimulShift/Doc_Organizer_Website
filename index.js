@@ -10,7 +10,7 @@ async function fetchDocuments() {
 
 function satisfiesPredicate(item, key) {
   if (!key) return true
-  let filename = item['Title of File'].toLowerCase()
+  let filename = item['filename'].toLowerCase()
   return filename.includes(key.toLowerCase())
 }
 
