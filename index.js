@@ -1,14 +1,17 @@
-let documents = undefined
-
-function fetchDocuments() {
-  fetch(
+async function fetchDocuments() {
+  return fetch(
     'https://raw.githubusercontent.com/AlexHappyCode/Doc_Organizer_Website/main/documents/Document_Metadata.json',
   )
     .then(response => response.text())
     .then(data => {
-      let jsonObj = JSON.parse(data)
-      displayJson(jsonObj)
+      return JSON.parse(data)
     })
+}
+
+function satisfiesPredicate(item, key) {
+  if (!key) return true
+  let filename = item['Title of File'].toLowerCase()
+  return filename.includes(key.toLowerCase())
 }
 
 /**
@@ -16,7 +19,7 @@ function fetchDocuments() {
  */
 function displayJson(jsonObj, key) {
   jsonObj
-    .filter(item => item['Title of File'].includes(key))
+    .filter(item => satisfiesPredicate(item, key))
     .forEach((element, idx) => {
       let title = document.createTextNode(`File ${idx}`)
       document.getElementById('json').appendChild(title)
@@ -30,3 +33,14 @@ function displayJson(jsonObj, key) {
       document.getElementById('json').appendChild(ul)
     })
 }
+
+async function main() {
+  const documents = await fetchDocuments()
+  displayJson(documents, '')
+  document.getElementById('search-input').addEventListener('input', event => {
+    console.log('changing')
+    json.innerHTML = ''
+    displayJson(documents, event.target.value)
+  })
+}
+main()
