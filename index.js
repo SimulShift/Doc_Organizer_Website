@@ -10,8 +10,16 @@ async function fetchDocuments() {
 
 function satisfiesPredicate(item, key) {
   if (!key) return true
-  let filename = item['filename'].toLowerCase()
-  return filename.includes(key.toLowerCase())
+  const filename = item['filename'].toLowerCase()
+  const activityTitle = item['Activity title'].toLowerCase()
+  const programmingLanguage = item['Programming language'].toLowerCase()
+  const CsTopic = item['CS topic'].toLowerCase()
+  return (
+    filename.includes(key.toLowerCase()) ||
+    programmingLanguage.includes(key) ||
+    activityTitle.includes(key) ||
+    CsTopic.includes(key)
+  )
 }
 
 /**
