@@ -1,6 +1,6 @@
 async function fetchDocuments() {
   return fetch(
-    'https://raw.githubusercontent.com/AlexHappyCode/Doc_Organizer_Website/main/documents/Document_Metadata.json',
+    'https://raw.githubusercontent.com/SociallyResponsibleComputing/SRC_Website/main/documents/Document_Metadata.json'
   )
     .then(response => response.text())
     .then(data => {
