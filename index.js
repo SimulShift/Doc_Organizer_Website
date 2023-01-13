@@ -22,12 +22,23 @@ function satisfiesPredicate(item, key) {
   )
 }
 
+function compareDates(a, b) {
+  if ( a.date < b.date ){
+    return -1;
+  }
+  if ( a.date > b.date ){
+    return 1;
+  }
+  return 0;
+}
+
 /**
  * @param {Array} jsonObj The json object
  */
 function displayJson(jsonObj, key) {
   jsonObj
     .filter(item => satisfiesPredicate(item, key))
+    .sort(compareDates)
     .forEach((element, idx) => {
       let title = document.createTextNode(`File ${idx}`)
       document.getElementById('json').appendChild(title)
